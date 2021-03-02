@@ -4,6 +4,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>nextlevel.jpa.demo.entities.Person</class>
     <class>nextlevel.jpa.demo.entities.Address</class>
+    <class>nextlevel.jpa.demo.entities.Fee</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/startcode"/>
       <property name="javax.persistence.jdbc.user" value="dev"/>

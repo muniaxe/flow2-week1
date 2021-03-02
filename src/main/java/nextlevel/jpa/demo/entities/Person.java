@@ -6,10 +6,12 @@
 package nextlevel.jpa.demo.entities;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -24,6 +26,20 @@ public class Person implements Serializable {
     private Long p_id;
     private String name;
     private int year;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+        if (address != null) {
+            address.setPerson(this);
+
+        }
+    }
 
     public Person() {
     }
@@ -35,10 +51,6 @@ public class Person implements Serializable {
 
     public Long getP_id() {
         return p_id;
-    }
-
-    public void setP_id(Long p_id) {
-        this.p_id = p_id;
     }
 
     public String getName() {
@@ -56,8 +68,5 @@ public class Person implements Serializable {
     public void setYear(int year) {
         this.year = year;
     }
-    
-    
-    
-    
+
 }
